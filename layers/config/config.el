@@ -5,5 +5,3 @@
 ;;; Org-roam
 (defvar config__org-roam-path "~/.config/org-roam-data"
   "Local path to where org-roam writes out files.")
-
-

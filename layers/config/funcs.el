@@ -20,7 +20,7 @@
       (toggle-truncate-lines 1))))
 
 (defun config--enable-pretty-lambdas ()
-  "Make them beautiful!"
+  "Make them beautiful! (h/t sam!)"
   (setq prettify-symbols-alist '(("lambda" . 955))))
 
 (defun config--just-one-face (fn &rest args)
@@ -29,20 +29,20 @@
     (apply fn args)))
 
 (defun config--send-script-region-to-bash-shell (start end)
-  "Send the current region to an existing or new shell buffer running Bash."
+  "Send the current region to an existing—or new!—shell buffer running Bash."
   (interactive "r")
   (let ((command (buffer-substring start end))
         (shell-buffer (get-buffer "*shell*")))
     (if shell-buffer
-        ;; If an existing shell buffer is found, use it
+        ;; If an existing shell buffer is found, use it...
         (progn
           (pop-to-buffer shell-buffer)
           (goto-char (point-max))
           (insert command)
           (comint-send-input))
-      ;; If no shell buffer is found, create a new one
+      ;; If no shell buffer is found, create a new one...
       (progn
-        (split-window-below)  ;; Change to `split-window-right` for a vertical split
+        (split-window-below)
         (other-window 1)
         (shell)
         (let ((new-shell-buffer (current-buffer)))
@@ -54,3 +54,15 @@
             (goto-char (point-max))
             (insert command)
             (comint-send-input)))))))
+
+(defun config--docker-build-with-target (target image-name)
+  "Build the Docker image defined in the current buffer with a specific target."
+  (interactive "sEnter target: \nsEnter image tag: ")
+  (save-buffer)
+  (let ((command (format "docker build --target %s -t %s -f %s ."
+                         (shell-quote-argument target)
+                         (shell-quote-argument image-name)
+                         (shell-quote-argument (buffer-file-name)))))
+    (compilation-start command nil
+                       (lambda (_) (format "*docker-build-output: %s-%s*"
+                                           image-name target)))))

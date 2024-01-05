@@ -8,11 +8,12 @@
           shell-default-height 70
           shell-enable-smart-eshell t
           spacemacs-vterm-history-file-location "~/.bash_history"
-          shell-default-term-shell "/opt/homebrew/bin/bash"
-          multi-term-program "/opt/homebrew/bin/bash")
+          shell-default-term-shell "/bin/bash"
+          multi-term-program "/bin/bash")
    lsp
    (shell-scripts :variables
                   shell-scripts-backend 'lsp
+                  shell-scripts-lsp-server 'bash-language-server
                   shell-scripts-format-on-save t)
    (clojure :variables
             clojure-enable-linters '(clj-kondo joker))

@@ -2,8 +2,8 @@
 
 (defconst config-packages
   '(
-    bats-mode
-    lsp-mode
+    dockerfile-mode
+    sh-mode
     geiser
     smartparens
     orderless
@@ -11,10 +11,6 @@
     writeroom-mode
     circe
     clojure))
-
-(defun config/init-bats-mode ()
-  (use-package bats-mode
-    :ensure t))
 
 ;; circe
 (defun config/init-circe ()
@@ -56,7 +52,7 @@
 (defun config/pre-init-geiser ()
   (spacemacs|use-package-add-hook geiser
     :pre-init
-    (setq geiser-mit-binary "/Users/ads/bin/mit-scheme")
+    ;;(setq geiser-mit-binary "/Users/ads/bin/mit-scheme")
     (setq geiser-repl-current-project-function 'projectile-project-root)))
 
 ;; org-roam
@@ -68,6 +64,12 @@
     (setq org-roam-directory config__org-roam-path)
     (setq org-roam-completion-everywhere t)))
 
+;; sh-mode
+(defun config/pre-init-sh-mode ()
+  (spacemacs|use-package-add-hook sh-mode
+    :post-config
+    (add-hook 'sh-mode-hook #'lsp)))
+
 ;; org
 (defun config/pre-init-org ()
   (spacemacs|use-package-add-hook org
@@ -75,6 +77,14 @@
      (add-hook 'org-mode-hook
               (lambda ()
                 (local-set-key (kbd "C-M-i") 'completion-at-point)))))
+
+;; dockerfile-mode
+(defun config/pre-init-dockerfile-mode ()
+  (spacemacs|use-package-add-hook dockerfile-mode
+    :post-config
+    (add-hook 'dockerfile-mode-hook
+              (lambda ()
+                (local-set-key (kbd "C-c C-b") 'config--docker-build-with-target)))))
 ;; clojure
 (defun config/pre-init-clojure ()
   (spacemacs|use-package-add-hook clojure
@@ -87,17 +97,6 @@
     (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-clojure-mode)
     :pre-init
     (setq clojure-enable-sayid t)))
-
-;; (defun config/pre-init-lsp-ui ()
-;;   (spacemacs|use-package-add-hook lsp-ui
-;;     :post-init
-;;     (setq lsp-ui-sideline-enable -1)
-;;     (setq lsp-ui-sideline-show-symbol -1)))
-
-(defun config/pre-init-lsp-mode ()
-  (spacemacs|use-package-add-hook lsp-mode
-    :post-init
-    (lsp-diagnostics-mode -1)))
 
 ;; smartparens
 (defun config/pre-init-smartparens ()

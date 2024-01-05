@@ -556,6 +556,13 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  (with-eval-after-load 'lsp
+    (add-to-list 'lsp-language-id-configuration '(sh-mode . "shellscript"))
+    (lsp-register-client
+     (make-lsp-client :new-connection (lsp-stdio-connection '("bash-language-server" "start"))
+                      :major-modes '(sh-mode)
+                      :server-id 'sh-ls)))
+
   (with-eval-after-load 'sh-script
     (define-key sh-mode-map
                 (kbd "C-x C-t")
