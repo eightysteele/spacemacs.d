@@ -2,13 +2,13 @@
 
 (defconst config-packages
   '(
+    lsp-julia
     dockerfile-mode
     sh-mode
     geiser
     smartparens
     orderless
     org org-roam
-    writeroom-mode
     circe
     clojure))
 
@@ -25,18 +25,6 @@
              :sasl-password "my-password"
              :channels ("#emacs-circe"))))))
 
-;; writeroom-mode
-(defun config/init-writeroom-mode ()
-  (use-package writeroom-mode
-    :ensure t
-    :hook
-    (writeroom-mode-enable . (lambda ()
-                               (visual-fill-column-mode 1)
-                               (visual-line-mode 1)))
-    (writeroom-mode-disable . (lambda ()
-                                (visual-fill-column-mode -1)
-                                (visula-line-mode -1)))))
-
 ;; orderless
 (defun config/init-orderless ()
   (use-package orderless
@@ -45,14 +33,14 @@
     (setq orderless-component-separator "[ &]")
     :custom
     (completion-styles '(orderless basic))
-    (completion-category-overrides '((file (styles basic partial-completion))))
+    (completion-category-overrijdes '((file (styles basic partial-completion))))
     (advice-add 'company-capf--candidates :around 'config--just-one-face)))
 
 ;; geiser
 (defun config/pre-init-geiser ()
   (spacemacs|use-package-add-hook geiser
     :pre-init
-    ;;(setq geiser-mit-binary "/Users/ads/bin/mit-scheme")
+    (setq geiser-mit-binary "/usr/localbin/mit-scheme")
     (setq geiser-repl-current-project-function 'projectile-project-root)))
 
 ;; org-roam
@@ -85,13 +73,23 @@
     (add-hook 'dockerfile-mode-hook
               (lambda ()
                 (local-set-key (kbd "C-c C-b") 'config--docker-build-with-target)))))
+
+;; julia-lsp
+(defun config/pre-init-lsp-julia ()
+  (spacemacs|use-package-add-hook lsp-julia
+    :post-config`
+    (setq lsp-julia-default-environment "~/.julia/environments/v1.10")))
+
+
+
 ;; clojure
 (defun config/pre-init-clojure ()
   (spacemacs|use-package-add-hook clojure
     :post-config
     (add-hook 'clojure-mode-hook
               (lambda ()
-                (local-set-key (kbd "C-M-<return>") 'config--clerk-show)
+                (sayid-setup-package)
+                (local-set-key (kbd "M-<return>") 'config--clerk-show)
                 (visual-line-mode t)
                 (visual-fill-column-mode t)))
     (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-clojure-mode)
