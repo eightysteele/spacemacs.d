@@ -77,7 +77,7 @@
 ;; julia-lsp
 (defun config/pre-init-lsp-julia ()
   (spacemacs|use-package-add-hook lsp-julia
-    :post-config`
+    :pre-init
     (setq lsp-julia-default-environment "~/.julia/environments/v1.10")))
 
 
