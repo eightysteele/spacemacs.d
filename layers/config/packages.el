@@ -8,9 +8,42 @@
     geiser
     smartparens
     orderless
-    org org-roam
+    org
+    org-roam
+    ;;citar-org-roam
+    ;;org-roam-bibtex
+    ;;org-re-reveal
+    ;;pdf-tools
+    org-noter
+    org-fragtog
     circe
     clojure))
+
+;;(defun config/init-pdf-tools ()
+ ;; :ensure t)
+
+;; org-re-reveal
+;;(defun config/init-org-re-reveal ()
+;;  :ensure t)
+
+;; org-roam-bibtex
+;;(defun config/init-org-roam-bibtex ()
+;;  :after org-roam)
+
+;; citar-org-roam
+;;(defun config/init-citar-org-roam ()
+;;  :after (citar org-roam)
+ ;; :config (citar-org-roam-mode))
+
+;; org-fragtog
+(defun config/init-org-fragtog ()
+  :ensure t)
+
+;; org-noter
+(defun config/init-org-noter ()
+  :ensure t
+  :init
+  (setq org-noter-notes-search-path '("~/.config/org-roam-data")))
 
 ;; circe
 (defun config/init-circe ()
@@ -61,8 +94,11 @@
 ;; org
 (defun config/pre-init-org ()
   (spacemacs|use-package-add-hook org
+    :pre-init
+    (setq org-startup-indented t)
     :post-config
-     (add-hook 'org-mode-hook
+    (add-hook 'org-mode-hook 'org-fragtog-mode)
+    (add-hook 'org-mode-hook
               (lambda ()
                 (local-set-key (kbd "C-M-i") 'completion-at-point)))))
 

@@ -2,9 +2,18 @@
 
 (configuration-layer/declare-layer-dependencies
  '(
+   javascript
+   html
    yaml
    markdown
    csv
+   pdf
+   mermaid
+   (treemacs :variables
+             treemacs-use-follow-mode 'tag
+             treemacs-use-filewatch-mode t
+             treemacs-use-scope-type 'Perspectives
+             treemacs-use-git-mode 'deferred)
    (julia :variables
           julia-backend 'lsp)
    (shell :variables
@@ -28,7 +37,11 @@
    (markdown :variables markdown-live-preview-engine 'vmd)
    (docker :variables docker-dockerfile-backend 'lsp)
    (scheme :variables scheme-implementations '(mit))
-   (org :variables org-enable-roam-support t)
+   (org :variables
+        org-enable-roam-support t
+        org-enable-reveal-js-support t
+        org-enable-roam-ui t
+        org-enable-modern-support t)
    (python :variables
            python-backend 'lsp
            python-lsp-server 'pylsp
