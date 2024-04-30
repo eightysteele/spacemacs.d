@@ -17,6 +17,7 @@
     org-noter
     org-fragtog
     circe
+    ;;cuda-mode
     clojure))
 
 ;;(defun config/init-pdf-tools ()
@@ -34,6 +35,9 @@
 ;;(defun config/init-citar-org-roam ()
 ;;  :after (citar org-roam)
  ;; :config (citar-org-roam-mode))
+
+;;(defun config/init-cuda-mode()
+;;  :ensure t)
 
 ;; org-fragtog
 (defun config/init-org-fragtog ()
@@ -115,8 +119,6 @@
   (spacemacs|use-package-add-hook lsp-julia
     :pre-init
     (setq lsp-julia-default-environment "~/.julia/environments/v1.10")))
-
-
 
 ;; clojure
 (defun config/pre-init-clojure ()

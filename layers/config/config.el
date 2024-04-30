@@ -19,3 +19,13 @@
 (setq-default git-magit-status-fullscreen t)
 
 ;;(define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
+
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cuh\\'" . c++-mode))
+
+(setq lsp-clients-clangd-executable "/usr/local/bin/clangd")
+
+;; Not needed with bazel gen of compile_commands.json?
+;; (setq lsp-clients-clangd-args
+;;      '("--query-driver=/usr/local/bin/clangd,/usr/bin/gcc,/usr/bin/g++"))
+

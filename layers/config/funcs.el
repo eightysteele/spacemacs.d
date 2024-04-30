@@ -66,3 +66,12 @@
     (compilation-start command nil
                        (lambda (_) (format "*docker-build-output: %s-%s*"
                                            image-name target)))))
+
+(defun config--cuda-gdb ()
+  "Launch cuda-gdb with the binary located in PROJECT_ROOT/debug/matrix/main."
+  (interactive)
+  (let ((project-root (projectile-project-root))
+        (binary-path "examples/debug/matrix/main"))
+    (if project-root
+        (gud-gdb (format "cuda-gdb --annotate=3 -w --fullname %s" (expand-file-name binary-path project-root)))
+      (message "Projectile project root not found."))))
