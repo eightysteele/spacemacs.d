@@ -2,6 +2,7 @@
 
 (configuration-layer/declare-layer-dependencies
  '(
+   bazel
    javascript
    html
    yaml
