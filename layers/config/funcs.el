@@ -68,10 +68,14 @@
                                            image-name target)))))
 
 (defun config--cuda-gdb ()
-  "Launch cuda-gdb with the binary located in PROJECT_ROOT/debug/matrix/main."
+  "Launch cuda-gdb with the binary located in PROJECT_ROOT/debug/matrix/main and set source directory."
   (interactive)
   (let ((project-root (projectile-project-root))
-        (binary-path "examples/debug/matrix/main"))
+        (binary-path "debug/matrix/main")
+        (source-dir "src/matrix"))
     (if project-root
-        (gud-gdb (format "cuda-gdb --annotate=3 -w --fullname %s" (expand-file-name binary-path project-root)))
+        (gud-gdb
+         (format "cuda-gdb --annotate=3 -w --fullname --directory=%s %s"
+                 (expand-file-name source-dir project-root)
+                 (expand-file-name binary-path project-root)))
       (message "Projectile project root not found."))))

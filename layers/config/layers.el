@@ -2,6 +2,7 @@
 
 (configuration-layer/declare-layer-dependencies
  '(
+   frames-only
    bazel
    javascript
    html
