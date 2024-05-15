@@ -4,7 +4,6 @@
  '(
    mlir-mode
    tablegen-mode
-   gptel
    frames-only
    bazel
    javascript
