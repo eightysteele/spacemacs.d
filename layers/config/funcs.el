@@ -79,3 +79,5 @@
                  (expand-file-name source-dir project-root)
                  (expand-file-name binary-path project-root)))
       (message "Projectile project root not found."))))
+
+

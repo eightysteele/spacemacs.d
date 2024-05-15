@@ -16,4 +16,3 @@
           (message "Warning: SPACEMACSDIR environment variable is not set")))
       (add-to-list 'auto-mode-alist '("\\.bazel\\'" . bazel-mode))
       (add-to-list 'auto-mode-alist '("BUILD\\'" . bazel-mode)))))
-

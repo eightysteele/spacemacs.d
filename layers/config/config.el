@@ -28,4 +28,3 @@
 ;; Not needed with bazel gen of compile_commands.json?
 ;; (setq lsp-clients-clangd-args
 ;;      '("--query-driver=/usr/local/bin/clangd,/usr/bin/gcc,/usr/bin/g++"))
-
