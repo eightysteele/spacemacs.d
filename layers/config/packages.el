@@ -10,44 +10,13 @@
     orderless
     org
     org-roam
-    ;;citar-org-roam
-    ;;org-roam-bibtex
-    ;;org-re-reveal
-    ;;pdf-tools
-    org-noter
     org-fragtog
     circe
-    ;;cuda-mode
     clojure))
-
-;;(defun config/init-pdf-tools ()
- ;; :ensure t)
-
-;; org-re-reveal
-;;(defun config/init-org-re-reveal ()
-;;  :ensure t)
-
-;; org-roam-bibtex
-;;(defun config/init-org-roam-bibtex ()
-;;  :after org-roam)
-
-;; citar-org-roam
-;;(defun config/init-citar-org-roam ()
-;;  :after (citar org-roam)
- ;; :config (citar-org-roam-mode))
-
-;;(defun config/init-cuda-mode()
-;;  :ensure t)
 
 ;; org-fragtog
 (defun config/init-org-fragtog ()
   :ensure t)
-
-;; org-noter
-(defun config/init-org-noter ()
-  :ensure t
-  :init
-  (setq org-noter-notes-search-path '("~/.config/org-roam-data")))
 
 ;; circe
 (defun config/init-circe ()
@@ -140,10 +109,3 @@
     :post-init
     ;; disable paraedit bindings with smartparens
     (sp-use-paredit-bindings)))
-
-;; racket-mode
-(defun config/pre-init-racket-mode ()
-  (spacemacs|use-package-add-hook racket-mode
-    :post-init
-    (turn-on-smartparens-strict-mode)
-    (config--enable-pretty-lambdas)))

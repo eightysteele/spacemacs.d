@@ -11,7 +11,6 @@
    yaml
    markdown
    csv
-   pdf
    mermaid
    (c-c++ :variables
           c-c++-backend 'lsp-clangd
@@ -35,7 +34,6 @@
           shell-default-position 'top
           shell-default-height 70
           shell-enable-smart-eshell t
-          spacemacs-vterm-history-file-location "~/.bash_history"
           shell-default-term-shell "/bin/bash"
           multi-term-program "/bin/bash")
    lsp
