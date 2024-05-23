@@ -3,7 +3,8 @@
 (global-prettify-symbols-mode 1)
 
 ;;; Org-roam
-(defvar config__org-roam-path "$XDG_CONFIG_HOME/org-roam-data"
+(defvar config__org-roam-path
+  (concat (getenv "XDG_CONFIG_HOME") "/org-roam-data")
   "Local path to where org-roam writes out files.")
 
 (global-visual-line-mode t)
