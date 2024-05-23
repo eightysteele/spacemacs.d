@@ -29,10 +29,7 @@ This function should only modify configuration layer settings."
 
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. "~/.mycontribs/")
-   (setq dotspacemacs-configuration-layer-path
-         (list (concat (getenv "SPACEMACSDIR") "/layers/")))
-  ;; dotspacemacs-configuration-layer-path '(concat (getenv "SPACEMACSDIR") "/layers/")
-   
+   ;;dotspacemacs-configuration-layer-path '("~/.config/spacemacs.d/layers/")
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
@@ -75,6 +72,7 @@ It should only modify the values of Spacemacs settings."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   dotspacemacs-configuration-layer-path (list (concat (getenv "SPACEMACSDIR") "/layers/"))
    ;; If non-nil then enable support for the portable dumper. You'll need to
    ;; compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
