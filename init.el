@@ -29,7 +29,9 @@ This function should only modify configuration layer settings."
 
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. "~/.mycontribs/")
-   dotspacemacs-configuration-layer-path '(concat (getenv "SPACEMACSDIR") "/layers/")
+   (setq dotspacemacs-configuration-layer-path
+         (list (concat (getenv "SPACEMACSDIR") "/layers/")))
+  ;; dotspacemacs-configuration-layer-path '(concat (getenv "SPACEMACSDIR") "/layers/")
    
 
    ;; List of configuration layers to load.
