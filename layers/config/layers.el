@@ -5,12 +5,12 @@
    ;;mlir-mode
    ;;tablegen-mode
    frames-only
-   bazel
+   ;;bazel
    javascript
    html
    yaml
    markdown
-   csv
+   csv=
    mermaid
    (c-c++ :variables
           c-c++-backend 'lsp-clangd
