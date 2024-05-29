@@ -2,16 +2,16 @@
 
 (defconst config-packages
   '(
-    lsp-julia
+    ;;lsp-julia
     dockerfile-mode
     sh-mode
-    geiser
+    ;;geiser
     smartparens
     orderless
     org
     org-roam
     org-fragtog
-    circe
+    ;;circe
     clojure))
 
 ;; org-fragtog
@@ -19,17 +19,17 @@
   :ensure t)
 
 ;; circe
-(defun config/init-circe ()
-  (use-package circe
-    :ensure t
-    :config
-    (setq circe-network-options
-          '(("Freenode"
-             :tls t
-             :nick "eighty"
-             :sasl-username "my-nick"
-             :sasl-password "my-password"
-             :channels ("#emacs-circe"))))))
+;; (defun config/init-circe ()
+;;   (use-package circe
+;;     :ensure t
+;;     :config
+;;     (setq circe-network-options
+;;           '(("Freenode"
+;;              :tls t
+;;              :nick "eighty"
+;;              :sasl-username "my-nick"
+;;              :sasl-password "my-password"
+;;              :channels ("#emacs-circe"))))))
 
 ;; orderless
 (defun config/init-orderless ()
@@ -43,11 +43,11 @@
     (advice-add 'company-capf--candidates :around 'config--just-one-face)))
 
 ;; geiser
-(defun config/pre-init-geiser ()
-  (spacemacs|use-package-add-hook geiser
-    :pre-init
-    (setq geiser-mit-binary "/usr/localbin/mit-scheme")
-    (setq geiser-repl-current-project-function 'projectile-project-root)))
+;; (defun config/pre-init-geiser ()
+;;   (spacemacs|use-package-add-hook geiser
+;;     :pre-init
+;;     (setq geiser-mit-binary "/usr/localbin/mit-scheme")
+;;     (setq geiser-repl-current-project-function 'projectile-project-root)))
 
 ;; org-roam
 (defun config/pre-init-org-roam ()
@@ -84,10 +84,10 @@
                 (local-set-key (kbd "C-c C-b") 'config--docker-build-with-target)))))
 
 ;; julia-lsp
-(defun config/pre-init-lsp-julia ()
-  (spacemacs|use-package-add-hook lsp-julia
-    :pre-init
-    (setq lsp-julia-default-environment "~/.julia/environments/v1.10")))
+;; (defun config/pre-init-lsp-julia ()
+;;   (spacemacs|use-package-add-hook lsp-julia
+;;     :pre-init
+;;     (setq lsp-julia-default-environment "~/.julia/environments/v1.10")))
 
 ;; clojure
 (defun config/pre-init-clojure ()
