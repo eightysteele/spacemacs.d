@@ -9,7 +9,7 @@
 
 (global-visual-line-mode t)
 
-(setq ob-mermaid-cli-path "/home/eighty/.config/nvm/versions/node/v21.5.0/bin/mmdc")
+;;setq ob-mermaid-cli-path "/home/eighty/.config/nvm/versions/node/v21.5.0/bin/mmdc")
 
 (setq org-startup-indented t)
 
