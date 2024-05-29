@@ -4,7 +4,7 @@
 
 ;;; Org-roam
 (defvar config__org-roam-path
-  (concat (getenv "XDG_CONFIG_HOME") "/org-roam-data")
+  (concat (getenv "XDG_CONFIG_HOME") "/emacs/org-roam/org-roam-data")
   "Local path to where org-roam writes out files.")
 
 (global-visual-line-mode t)

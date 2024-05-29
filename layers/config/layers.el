@@ -3,7 +3,7 @@
 (configuration-layer/declare-layer-dependencies
  '(
    mlir-mode
-   ;;tablegen-mode
+   tablegen-mode
    frames-only
    ;;bazel
    javascript
