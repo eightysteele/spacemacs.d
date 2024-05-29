@@ -2,16 +2,16 @@
 
 (configuration-layer/declare-layer-dependencies
  '(
-   ;;mlir-mode
-   ;;tablegen-mode
+   mlir-mode
+   tablegen-mode
    frames-only
    ;;bazel
    javascript
    html
    yaml
    markdown
-   csv=
-   mermaid
+   ;;csv=
+   ;;mermaid
    (c-c++ :variables
           c-c++-backend 'lsp-clangd
           ;;c-c++-lsp-enable-semantic-highlight 'rainbow
@@ -22,13 +22,13 @@
           ;;c-c++-enable-auto-newline t
           ;;c-c++-adopt-subprojects t
           c-c++-default-mode-for-headers 'c++-mode)
-   (treemacs :variables
-             treemacs-use-follow-mode 'tag
-             treemacs-use-filewatch-mode t
-             treemacs-use-scope-type 'Perspectives
-             treemacs-use-git-mode 'deferred)
-   (julia :variables
-          julia-backend 'lsp)
+   ;;(treemacs :variables
+   ;;          treemacs-use-follow-mode 'tag
+   ;;          treemacs-use-filewatch-mode t
+   ;;          treemacs-use-scope-type 'Perspectives
+   ;;          treemacs-use-git-mode 'deferred)
+   ;;(julia :variables
+   ;;       julia-backend 'lsp)
    (shell :variables
           shell-default-shell 'eshell
           shell-default-position 'top
@@ -48,7 +48,7 @@
             clojure-enable-fancify-symbols t)
    (markdown :variables markdown-live-preview-engine 'vmd)
    (docker :variables docker-dockerfile-backend 'lsp)
-   (scheme :variables scheme-implementations '(mit))
+   ;;(scheme :variables scheme-implementations '(mit))
    (org :variables
         org-enable-roam-support t
         org-enable-reveal-js-support t

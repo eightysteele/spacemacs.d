@@ -30,7 +30,7 @@
   :link '(url-link "https://mlir.llvm.org/docs/Tools/MLIRLSP/"))
 
 
-(defcustom lsp-mlir-server-executable "~/bin/mlir-lsp-server"
+(defcustom lsp-mlir-server-executable "/usr/bin/mlir-lsp-server"
   "Command to start the mlir language server."
   :group 'lsp-mlir
   :risky t
@@ -39,7 +39,6 @@
 
 (defun lsp-mlir-setup ()
   "Setup the LSP client for MLIR."
-  (message "SETUP!")
   (add-to-list 'lsp-language-id-configuration '(mlir-mode . "mlir"))
 
   (lsp-register-client

@@ -30,7 +30,7 @@
   :link '(url-link "https://mlir.llvm.org/docs/Tools/MLIRLSP/"))
 
 
-(defcustom lsp-tblgen-server-executable "~/bin/tblgen-lsp-server"
+(defcustom lsp-tblgen-server-executable "/usr/bin/tblgen-lsp-server"
   "Command to start the tblgen language server."
   :group 'lsp-tblgen
   :risky t
@@ -39,7 +39,6 @@
 
 (defun lsp-tblgen-setup ()
   "Setup the LSP client for tblgen."
-  (message "SETUP!")
   (add-to-list 'lsp-language-id-configuration '(tablegen-mode . "td"))
 
   (lsp-register-client

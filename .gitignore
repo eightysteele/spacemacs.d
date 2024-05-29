@@ -12,3 +12,9 @@
 
 # Temp files
 .#*
+
+.cache
+eln-cache
+elpa
+quelpa
+org-roam
