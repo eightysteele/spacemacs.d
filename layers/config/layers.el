@@ -12,6 +12,9 @@
    markdown
    ;;csv=
    ;;mermaid
+   (nixos :variables
+          nix-backend 'lsp
+          nixos-format-on-save t)
    (c-c++ :variables
           c-c++-backend 'lsp-clangd
           ;;c-c++-lsp-enable-semantic-highlight 'rainbow
