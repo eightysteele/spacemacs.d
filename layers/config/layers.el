@@ -2,15 +2,14 @@
 
 (configuration-layer/declare-layer-dependencies
  '(
-   mlir-mode
-   tablegen-mode
+   ;;mlir-mode
+   ;;tablegen-mode
    frames-only
    ;;bazel
    javascript
    html
    yaml
    markdown
-   ;;csv=
    ;;mermaid
    (nixos :variables
           nix-backend 'lsp
