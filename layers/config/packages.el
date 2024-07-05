@@ -2,6 +2,7 @@
 
 (defconst config-packages
   '(
+    highlight-indent-guides
     ;;lsp-julia
     dockerfile-mode
     sh-mode
@@ -13,6 +14,19 @@
     org-fragtog
     ;;circe
     clojure))
+
+;; highlight-indent-guides
+(defun config/init-highlight-indent-guides ()
+  :ensure t
+  :post-config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'highlight-indent-guides-mode-hook
+    (lambda ()
+      (setq highlight-indent-guides-method 'character)
+      (setq highlight-indent-guides-auto-enabled nil)
+      (set-face-background 'highlight-indent-guides-odd-face "#696969")
+      (set-face-background 'highlight-indent-guides-even-face "#696969")
+      (set-face-foreground 'highlight-indent-guides-character-face "#696969"))))
 
 ;; org-fragtog
 (defun config/init-org-fragtog ()
